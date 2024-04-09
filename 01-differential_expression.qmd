@@ -75,7 +75,6 @@ tx2gene = read.delim(tx2genefile, header=FALSE)[, 1:3]
 
 directory_path <- here::here("data/count_tables")
 files = list.files(path = directory_path,pattern = "quant.sf", recursive = TRUE, full.names = TRUE)
-p = 2
 txi = tximport(files, type="salmon", tx2gene=tx2gene)
 samples = sapply(files, function(path) {basename(dirname(path))})
 condition = sapply(files, function(path) {
